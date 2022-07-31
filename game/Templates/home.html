@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home.css' %}" >
+    <title>Home</title>
+</head>
+<body>
+    <center>
+        <h1>Resource Collector</h1>
+
+        <form>
+            <label>Enter Number of Negative Blocks:</label> <br>
+            <input type="number" name="negative" required>
+
+            <br>
+
+            <label>Enter Number of Swords Blocks:</label> <br>
+            <input type="number" name="swords" required>
+
+            <br>
+
+            <label>Enter Number of Launch Blocks:</label> <br>
+            <input type="number" name="launch" required>
+
+            <br>
+
+            <label>Enter Number of Locks:</label> <br>
+            <input type="number" name="lock" required>
+
+            <br>
+
+            <input type="submit" value="Play Game">
+        </form>
+    </center>
+</body>
+</html>

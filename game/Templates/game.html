@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'game.css' %}" >
+
+    <title>Game</title>
+</head>
+<body>
+
+    <input type="hidden" value="{{blocks}}" id="blocks">
+    <input type="hidden" value="{{pos}}" id="pos">
+
+    <table>
+        <tr>
+            <td id="7"><div class="box big"><img src="{% static 'antenna.jpg' %}"></div></td>
+            <td id="8"><div class="box"></div></td>
+            <td id="9"><div class="box"></div></td>
+            <td id="10"><div class="box"></div></td>
+            <td id="11"><div class="box"></div></td>
+            <td id="12"><div class="box"></div></td>
+            <td colspan="3" id="13"><div class="box guns"><img src="{% static 'guns.jpg' %}"></div></td>
+            <td id="14"><div class="box"></div></td>
+            <td id="15"><div class="box"></div></td>
+            <td id="16"><div class="box"></div></td>
+            <td id="17"><div class="box big"><img src="{% static 'solar.jpg' %}"></div></td>
+            <td id="18"><div class="box"></div></td>
+            <td id="19"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td id="6"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td id="48"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="53"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="60"><div class="box"></div></td>
+            <td></td>
+            <td id="20"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td id="5"><div class="box"></div></td>
+            <td id="47"><div class="box"></div></td>
+            <td id="46"><div class="box"></div></td>
+            <td id="45"><div class="box big"><img src="{% static 'tools.jpg' %}"></div></td>
+            <td id="49"><div class="box"></div></td>
+            <td id="50"><div class="box"></div></td>
+            <td id="51"><div class="box"></div></td>
+            <td id="52"><div class="box"></div></td>
+            <td id="55"><div class="box"></div></td>
+            <td id="56"><div class="box big"><img src="{% static 'medication.jpg' %}"></div></td>
+            <td id="57"><div class="box"></div></td>
+            <td id="58"><div class="box"></div></td>
+            <td id="59"><div class="box"></div></td>
+            <td id="61"><div class="box"></div></td>
+            <td rowspan="2" id="21"><div class="box key"><img src="{% static 'key.jpg' %}"></div></td>
+        </tr>
+        <tr>
+            <td id="4"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td id="44"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="54"><div class="box"></div></td>
+            <td></td>
+            <td id="63"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td id="43"><div class="box"></div></td>
+            <td id="69"><div class="box"></div></td>
+            <td id="68"><div class="box"></div></td>
+            <td id="67"><div class="box"></div></td>
+            <td id="66"><div class="box big"><img src="{% static 'fuel.jpg' %}"></div></td>
+            <td id="65"><div class="box"></div></td>
+            <td id="64"><div class="box"></div></td>
+            <td colspan="4" rowspan="3" id="62"><div class="box space"><img src="{% static 'space.jpg' %}"></div></td>
+            <td id="22"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td id="3"><div class="box big"><img src="{% static 'food.jpg' %}"></div></td>
+            <td></td>
+            <td></td>
+            <td id="42"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="70"><div class="box"></div></td>
+            <td id="23"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td id="2"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td id="41"><div class="box"></div></td>
+            <td id="40"><div class="box"></div></td>
+            <td id="39"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="71"><div class="box"></div></td>
+            <td id="24"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td id="1"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="35"><div class="box"></div></td>
+            <td id="34"><div class="box"></div></td>
+            <td rowspan="2" id="33"><div class="box circuit"><img src="{% static 'circuit.jpg' %}"></div></td>
+            <td></td>
+            <td id="72"><div class="box"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="25"><div class="box"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3" id="0"><div class="box start"><h1>START</h1><img id="avatar" src="{% static 'avatar.png' %}"></div></td>
+            <td id="38"><div class="box"></div></td>
+            <td id="37"><div class="box"></div></td>
+            <td id="36"><div class="box"></div></td>
+            <td></td>
+            <td id="32"><div class="box"></div></td>
+            <td id="31"><div class="box"></div></td>
+            <td id="30"><div class="box"></div></td>
+            <td id="29"><div class="box"></div></td>
+            <td id="28"><div class="box"></div></td>
+            <td id="27"><div class="box"></div></td>
+            <td id="26"><div class="box big"><img src="{% static 'manual.jpg' %}"></div></td>
+        </tr>
+        
+    </table>
+    
+</body>
+<script>
+    blocks = document.getElementById('blocks').value
+    pos = document.getElementById('pos').value
+    console.log(blocks)
+    console.log(pos)
+</script>
+</html>
