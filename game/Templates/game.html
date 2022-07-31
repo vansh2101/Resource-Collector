@@ -17,17 +17,17 @@
 
     <table>
         <tr>
-            <td id="7"><div class="box big"><img src="{% static 'antenna.jpg' %}"></div></td>
+            <td id="7"><div class="box big"><img src="{% static 'antenna.png' %}"></div></td>
             <td id="8"><div class="box"></div></td>
             <td id="9"><div class="box"></div></td>
             <td id="10"><div class="box"></div></td>
             <td id="11"><div class="box"></div></td>
             <td id="12"><div class="box"></div></td>
-            <td colspan="3" id="13"><div class="box guns"><img src="{% static 'guns.jpg' %}"></div></td>
+            <td colspan="3" id="13"><div class="box guns"><img src="{% static 'guns.png' %}"></div></td>
             <td id="14"><div class="box"></div></td>
             <td id="15"><div class="box"></div></td>
             <td id="16"><div class="box"></div></td>
-            <td id="17"><div class="box big"><img src="{% static 'solar.jpg' %}"></div></td>
+            <td id="17"><div class="box big"><img src="{% static 'solar.png' %}"></div></td>
             <td id="18"><div class="box"></div></td>
             <td id="19"><div class="box"></div></td>
         </tr>
@@ -52,18 +52,18 @@
             <td id="5"><div class="box"></div></td>
             <td id="47"><div class="box"></div></td>
             <td id="46"><div class="box"></div></td>
-            <td id="45"><div class="box big"><img src="{% static 'tools.jpg' %}"></div></td>
+            <td id="45"><div class="box big"><img src="{% static 'tools.png' %}"></div></td>
             <td id="49"><div class="box"></div></td>
             <td id="50"><div class="box"></div></td>
             <td id="51"><div class="box"></div></td>
             <td id="52"><div class="box"></div></td>
             <td id="55"><div class="box"></div></td>
-            <td id="56"><div class="box big"><img src="{% static 'medication.jpg' %}"></div></td>
+            <td id="56"><div class="box big"><img src="{% static 'medication.png' %}"></div></td>
             <td id="57"><div class="box"></div></td>
             <td id="58"><div class="box"></div></td>
             <td id="59"><div class="box"></div></td>
             <td id="61"><div class="box"></div></td>
-            <td rowspan="2" id="21"><div class="box key"><img src="{% static 'key.jpg' %}"></div></td>
+            <td rowspan="2" id="21"><div class="box key"><img src="{% static 'key.png' %}"></div></td>
         </tr>
         <tr>
             <td id="4"><div class="box"></div></td>
@@ -89,14 +89,14 @@
             <td id="69"><div class="box"></div></td>
             <td id="68"><div class="box"></div></td>
             <td id="67"><div class="box"></div></td>
-            <td id="66"><div class="box big"><img src="{% static 'fuel.jpg' %}"></div></td>
+            <td id="66"><div class="box big"><img src="{% static 'fuel.png' %}"></div></td>
             <td id="65"><div class="box"></div></td>
             <td id="64"><div class="box"></div></td>
-            <td colspan="4" rowspan="3" id="62"><div class="box space"><img src="{% static 'space.jpg' %}"></div></td>
+            <td colspan="4" rowspan="3" id="62"><div class="box space"><img src="{% static 'space.png' %}"></div></td>
             <td id="22"><div class="box"></div></td>
         </tr>
         <tr>
-            <td id="3"><div class="box big"><img src="{% static 'food.jpg' %}"></div></td>
+            <td id="3"><div class="box big"><img src="{% static 'food.png' %}"></div></td>
             <td></td>
             <td></td>
             <td id="42"><div class="box"></div></td>
@@ -129,7 +129,7 @@
             <td></td>
             <td id="35"><div class="box"></div></td>
             <td id="34"><div class="box"></div></td>
-            <td rowspan="2" id="33"><div class="box circuit"><img src="{% static 'circuit.jpg' %}"></div></td>
+            <td rowspan="2" id="33"><div class="box circuit"><img src="{% static 'circuit.png' %}"></div></td>
             <td></td>
             <td id="72"><div class="box"></div></td>
             <td></td>
@@ -150,7 +150,7 @@
             <td id="29"><div class="box"></div></td>
             <td id="28"><div class="box"></div></td>
             <td id="27"><div class="box"></div></td>
-            <td id="26"><div class="box big"><img src="{% static 'manual.jpg' %}"></div></td>
+            <td id="26"><div class="box big"><img src="{% static 'manual.png' %}"></div></td>
         </tr>
         
     </table>
@@ -169,7 +169,7 @@
 
     for (let i=0; i<pos.length; i++){
         const y = document.getElementById(`${pos[i]}`)
-        y.children[0].innerHTML = `<img src='{% static '${blocks[i]}' %}.jpg'>`
+        y.children[0].innerHTML = `<img src='{% static '${blocks[i]}' %}.png'>`
     }
     
     if (path.length > 1){
@@ -181,6 +181,7 @@
             const ele = document.getElementById(`${path[i]}`)
             ele.children[0].innerHTML = ele.children[0].innerHTML + `<img id="avatar" src="{% static 'avatar.png' %}">`
         }
+        alert('Minimum days need to collect all resources: '+day)
     }
     else{
         alert(path[0])
