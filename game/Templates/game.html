@@ -12,6 +12,8 @@
 
     <input type="hidden" value="{{blocks}}" id="blocks">
     <input type="hidden" value="{{pos}}" id="pos">
+    <input type="hidden" value="{{day}}" id="day">
+    <input type="hidden" value="{{path}}" id="path">
 
     <table>
         <tr>
@@ -155,9 +157,33 @@
     
 </body>
 <script>
-    blocks = document.getElementById('blocks').value
-    pos = document.getElementById('pos').value
+    var blocks = document.getElementById('blocks').value.replace('[', '').replace(']', '').replace(/'/g, '').split(', ');
+    var pos = document.getElementById('pos').value.replace('[', '').replace(']', '').replace(/'/g, '').split(', ');
+    var day = document.getElementById('day').value;
+    var path = document.getElementById('path').value.replace('[', '').replace(']', '').replace(/'/g, '').split(', ');
+
     console.log(blocks)
     console.log(pos)
+    console.log(day)
+    console.log(path)
+
+    for (let i=0; i<pos.length; i++){
+        const y = document.getElementById(`${pos[i]}`)
+        y.children[0].innerHTML = `<img src='{% static '${blocks[i]}' %}.jpg'>`
+    }
+    
+    if (path.length > 1){
+        for (let i=0; i<path.length; i++){
+            const avatar = document.getElementById('avatar')
+            const parent = avatar.parentElement
+            parent.style.backgroundColor = 'green'
+            parent.removeChild(parent.lastChild)
+            const ele = document.getElementById(`${path[i]}`)
+            ele.children[0].innerHTML = ele.children[0].innerHTML + `<img id="avatar" src="{% static 'avatar.png' %}">`
+        }
+    }
+    else{
+        alert(path[0])
+    }
 </script>
 </html>

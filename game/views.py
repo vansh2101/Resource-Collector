@@ -1,3 +1,4 @@
+import time
 from django.shortcuts import render
 import random
 
@@ -126,7 +127,7 @@ OBJECTIVES = {
 
 INF = float('inf')
 
-def shortest_path():
+def shortest_path(ACTION):
     visited = [False] * 100
     path = []
 
@@ -134,7 +135,7 @@ def shortest_path():
     totaldays = []
     count = [0]
 
-    def solve(index, inventory, steps, energy, time, launch=0, days=0, idle=2):
+    def solve(index, inventory, steps, energy, time, ACTION, launch=0, days=0, idle=2):
         if visited[index]:
             return INF
 
@@ -186,7 +187,7 @@ def shortest_path():
             for dotted_adjacent in DOTTED[index]:
                 visited[index] = True
                 path.append(index)
-                mini = min(mini, solve(dotted_adjacent, inventory, steps-1, energy, time-1, launch-1, days, idle))
+                mini = min(mini, solve(dotted_adjacent, inventory, steps-1, energy, time-1, ACTION, launch-1, days, idle))
 
                 if mini == INF:
                     path.pop()
@@ -198,7 +199,7 @@ def shortest_path():
         for adjacent in MAP[index]:
             visited[index] = True
             path.append(index)
-            mini = min(mini, solve(adjacent, inventory, steps-1, energy, time-1, launch, days, idle))
+            mini = min(mini, solve(adjacent, inventory, steps-1, energy, time-1, ACTION, launch, days, idle))
 
             if mini == INF:
                 path.pop()
@@ -206,11 +207,11 @@ def shortest_path():
             visited[index] = False
 
         if idle:
-            mini = min(mini, solve(index, inventory, steps, energy, 0, launch, days, idle-1))
+            mini = min(mini, solve(index, inventory, steps, energy, 0, ACTION, launch, days, idle-1))
 
         return mini
 
-    res = solve(index=START, inventory=(), steps=INITIAL_STEPS, energy=INITIAL_ENERGY, time=STEP_PER_DAY)
+    res = solve(index=START, inventory=(), steps=INITIAL_STEPS, energy=INITIAL_ENERGY, time=STEP_PER_DAY, ACTION=ACTION)
 
     try:
         shortest = track[totaldays.index(min(totaldays))]
@@ -235,11 +236,15 @@ def home(request):
 
 def game(request):
     ACTION = {}
-    for block in ['negative', 'swords', 'launch', 'lock']:
-            num = 2#int(input(f'Enter number of {block} blocks: '))
-            for i in range(num):
+
+    data = {'negative': request.POST['negative'], 'swords': request.POST['swords'], 'launch': request.POST['launch'], 'lock': request.POST['lock']}
+
+    for block in data:
+            for i in range(int(data[block])):
                 ACTION[generate_blocks(block)] = block
 
-    print(ACTION)
+    time.sleep(1.5)
 
-    return render(request, 'game.html', {'blocks': list(ACTION.values()), 'pos': list(ACTION.keys())})
+    shortest = shortest_path(ACTION)
+
+    return render(request, 'game.html', {'blocks': list(ACTION.values()), 'pos': list(ACTION.keys()), 'day': shortest[0], 'path': shortest[1]})

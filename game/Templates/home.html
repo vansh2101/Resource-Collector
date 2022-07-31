@@ -10,7 +10,8 @@
     <center>
         <h1>Resource Collector</h1>
 
-        <form>
+        <form method="post" action="/game">
+            {% csrf_token %}
             <label>Enter Number of Negative Blocks:</label> <br>
             <input type="number" name="negative" required>
 
