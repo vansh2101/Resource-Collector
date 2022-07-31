@@ -65,7 +65,7 @@ ROOT_URLCONF = 'ResourceCollector.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__) ,'Templates').replace('\\','/')],
+        'DIRS': [os.path.join(os.path.dirname(__file__) ,'../game/Templates').replace('\\','/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
